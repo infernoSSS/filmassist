@@ -1,0 +1,39 @@
+@import url(colors.css);
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+.back_title{
+  font-size: 6em;
+  bottom: 6.4em;
+  left: 0.1em;
+  position: fixed;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.title{
+  font-size: 2.5em;
+}
+
+.quest_box{
+  height: 60vh;
+  width: 20vw;
+  border: 1em solid var(--light5);
+  border-width: 1em 1em 0.3em 0.3em;
+  border-radius: 2em 6em;
+  margin: 2em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.answers_box{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.question{
+  font-size: 1.5em  ;
+}

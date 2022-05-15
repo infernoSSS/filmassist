@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/collors.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/films.css">
+</head>
+<body>
+    <a class="header title" href="http://localhost:8080/quest">Home</a>
+    <main>
+        <div class="films_container">
+            <form class="film_container" th:each="f : ${films}" method="post" action="/films">
+                <input type="hidden" name="userClass" th:value="${ui}"/>
+                <input type="hidden" name="filmId" th:value="${f.id}"/>
+                <input type="hidden" name="page" th:value="${page}"/>
+                <form class="film">
+                    <img class="film_img" th:src="${f.img}" alt="">
+                    <div class="film_sub">
+                        <div class="film_description">
+                            <span class="film_title" th:text="${f.title}">Film name</span>
+                        </div>
+                        <div class="film_evaluate_bar">
+                            <input class="button" type="submit" name="evaluate" value="Cool!">
+                            <input class="button" type="submit" name="evaluate" value="Bad T_T">
+                        </div>
+                    </div>
+                </form>
+                <div class="border"></div>
+            </form>
+        </div>
+    </main>
+    <form class="nav_bar" action="/films" method="post">
+        <input type="hidden" name="userClass" th:value="${ui}"/>
+        <input type="hidden" name="page" th:value="${page}"/>
+        <input class="button" type="submit" name="nav" value="prev">
+        <input class="button" type="submit" name="nav" value="next">
+    </form>
+    <span class="back_title">Film Assistant</span>
+    <img class="back" src="resources/back.png" alt="">
+</body>
+</html>

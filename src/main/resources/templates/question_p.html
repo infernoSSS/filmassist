@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/collors.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/questp_style.css">
+</head>
+    <body>
+        <div class="header">
+            <a href="http://localhost:8080/quest" class="title">Home</a>
+        </div>
+        <main>
+            <div class = "quest_box">
+                <span class="question" th:text="${quest.question}">Text</span>
+                <form class="answers_box" action="quest" method="post">
+                    <div class="answer" th:each="r : ${quest.answers}">
+                        <input type="radio" th:id="${r.answer}" required name="answer" th:value="${r.answer}">
+                        <label th:for="${r.answer}" th:text="${r.answer}"></label>
+                    </div>
+                    <input class="button" type="submit" value="Далее">
+                </form>
+            </div>
+        </main>
+        <span class="back_title">Film Assistant</span>
+        <img class="back" src="resources/back.png" alt="">
+    </body>
+</html>
